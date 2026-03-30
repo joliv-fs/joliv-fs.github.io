@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Conversor de sistema numérico</h1>
+      <p>
+        Script que
+        <strong>converte números entre diferentes sistemas numéricos</strong>,
+        como Binário, Decimal, Hexadecimal e Octal.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        //exercício: faça uma aplicação que receba um número decimal digitado pelo usuário e apresente o valor nos sistemas binário, octal e hexadecimal
+
+        // requerimento de inicialização do módulo
+        const prompt = require("prompt-sync")();
+        
+        //permitir o input/entrada de dados do usuário
+        let decimalNumber = parseFloat(
+          prompt("Qual número você deseja converter entre sistemas numéricos? "),
+        );
+        
+        //indicar operação de conversão para cada sistema numérico
+        let binary = decimalNumber.toString(2); // sistema numérico binário (base 2)
+        let octal = decimalNumber.toString(8); // sistema numérico octal (base 8)
+        let hexadecimal = decimalNumber.toString(16); // sistema numérico hexadecimal (base 16)
+        
+        console.log(
+          `O número decimal ${decimalNumber} em número binário corresponde a ${binary}; \n já em número octal corresponde a ${octal}; \n enquanto em número hexadecimal corresponde a ${hexadecimal}`,
+          );
+      </code>
+    </pre>
+      <hr />
+    </main>
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>

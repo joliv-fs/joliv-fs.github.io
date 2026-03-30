@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Qual é o mês</h1>
+      <p>
+        Script que <strong>identifica</strong> o mês
+        <strong>correspondente</strong> a um número informado.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        //exercício: construa um programa no qual o usuário digitará um número entre 1 e 12 e o sistema retornará, na tela, qual mês corresponde a esse número.
+
+        //requires: inicialização de módulo
+        const prompt = require("prompt-sync")();
+
+        //var: declaração de variáveis ; nome descritivo para você se lembrar sobre o que ela fala
+        const mesDigitadoUsuario = null;
+
+        /*aqui pode ser parseInt porque consideramos que o usuário vai entrar números inteiros
+        no caso de numerais com dois digitos, o parseInt dá erro porque ele interpreta como dois numerais
+        */
+        mesDigitadoUsuario = parInt(prompt("Digite o número do mês que você quer saber: ")); 
+
+        switch(mesDigitadoUsuario){
+          case 1:
+            console.log("Janeiro");
+            break;
+          case 2:
+            console.log("Fevereiro");
+            break;
+          case 3:
+            console.log("Março");
+            break;
+          case 4:
+            console.log("Abril");
+            break;
+          case 5:
+            console.log("Maio");
+            break;
+          case 6:
+            console.log("Junho");
+            break;
+          case 7:
+            console.log("Julho");
+            break;
+          case 8:
+            console.log("Agosto");
+            break;
+          case 9:
+            console.log("Setembro");
+            break;
+          case 10:
+            console.log("Outubro");
+            break;
+          case 11:
+            console.log("Novembro");
+            break;
+          case 12:
+            console.log("Dezembro");
+            break;
+          default:
+            console.log("Valor incorreto digitado. Tente novamente.");
+
+            break;
+        }
+      </code>
+    </pre>
+      <hr />
+    </main>
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>

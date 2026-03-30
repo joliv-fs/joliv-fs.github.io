@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Sistema de gerenciamento de comandas para garçons</h1>
+      <p>
+        Script que <strong>gerencia</strong> comandas de clientes, permitindo
+        <strong>registrar</strong> pedidos, <strong>calcular</strong> totais e
+        <strong>fechar</strong> contas.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        /*
+        exercício: crie um software para gerenciar pedidos, onde o garçom anota os itens e mostra o total; 
+        inclua uma lista de produtos com preços unitários; 
+        considere a opção de adicionar 10% de gorjeta no cálculo final e antes de fechar a conta, pergunte sobre a necessidade de incluir um valor fixo de couvert artístico. 
+        Organize o script utilizando funções.
+        */
+
+        //require: requisição de módulos
+        const prompt = require("prompt-sync")();
+
+        //var: lista de produtos comercializados no estabelecimento organizados em dicionário
+        const produtos = [
+          { id: 1, nome: "Salgado frito", valor: 6 },
+          { id: 2, nome: "Salgado assado", valor: 9 },
+          { id: 3, nome: "Refrigerante KS", valor: 5.99 },
+          { id: 4, nome: "Ice Tea", valor: 7.99 },
+          { id: 5, nome: "Fatia de torta", valor: 18 },
+          { id: 6, nome: "Couvert artístico", valor: 5 },
+        ];
+
+        //var: array vazio para receber entrada do usuário
+        var pedido = [];
+
+        //function: para verificar resposta afirmativa ou positiva a partir da entrada do usuário
+        function verificarRespostaTexto(respota) {
+          let respostasPositivas = ["s", "sim", "y", "yes"];
+          let respostasNegativas = ["n", "nao", "no"];
+
+          if (respostasPositivas.includes(respota)) {
+            return "sim";
+          } else if (respostasNegativas.includes(respota)) {
+            return "nao";
+          } else {
+            ("indefinida");
+          }
+        }
+
+        //function: para padronizar entrada do usuário em caixa baixa
+        function tratarEntradaUsuarioTextual(mensagem) {
+          let respostaUsuario = null;
+          respostaUsuario = prompt(mensagem).toLowerCase();
+          return respostaUsuario;
+        }
+
+        //function: para padronizar entrada do usuário em números inteiros
+        function tratarEntradaUsuarioNumerica(mensagem) {
+            let respostaUsuario = null;
+            respostaUsuario = parseInt(prompt(mensagem));
+          return respostaUsuario;
+        }
+
+        //function: para verificar se o pedido foi finalizado pelo usuário
+        function verificarPedidoFinalizado() {
+              let respostaUsuario = null;
+
+            do {
+              respostaUsuario = tratarEntradaUsuarioTextual(
+                "Gostaria de finalizar o pedido? (sim ou nao): ",
+              );
+              console.log(respostaUsuario);
+            } while (verificarRespostaTexto(respostaUsuario) == "indefinida");
+
+            if (verificarRespostaTexto(respostaUsuario) == "sim") {
+              return true;
+            } else {
+              return false;
+            }
+          }
+
+        //function: exibir lista de produtos comercializados
+        function apresentarPedido() {
+          console.log("..... ..... ..... CANTINA SENAC ..... ..... .....");
+          for (item of produtos) {
+            console.log(
+              item["id"] +
+                " _____ " +
+                item["produto"] +
+                " _____ " +
+                " R$ " +
+                item["valor"],
+            );
+          }
+          console.log("..... ..... ..... ..... ..... ..... .....");
+        }
+
+        //function: para buscar um produto dentro da lista/dicionário
+        function buscarProduto(produtos, id) {
+          for (item of produtos) {
+            if (item["id"] === id) return item;
+          }
+          return null;
+        }
+
+        //function: para adicionar um produto ao pedido/array
+        function adicionarProdutoPedido(produtos) {
+          let idProdutoAdicionado = null;
+          let registroProdutoAdicionado = null;
+          let quantidadeProduto = null;
+
+          console.log(apresentarPedido);
+
+          idProdutoAdicionado = tratarEntradaUsuarioNumerica(
+            "Digite o código do produto que deseja adicionar a comanda: ",
+          );
+          do {
+            registroProdutoAdicionado = buscarProduto(produtos, idProdutoAdicionado);
+            if (registroProdutoAdicionado == null) {
+              idProdutoAdicionado = tratarEntradaUsuarioNumerica(
+                "Produto não encontrado! Digite um código de produto válido: ",
+              );
+            }
+          } while (registroProdutoAdicionado === null);
+          quantidadeProduto = tratarEntradaUsuarioNumerica(
+            "Digite a quantidade desejada de " +
+              registroProdutoAdicionado["produto"] +
+              " a ser adicionado: ",
+          );
+          pedido.push({
+            produto: registroProdutoAdicionado["produto"],
+            total: quantidadeProduto * registroProdutoAdicionado["valor"],
+          });
+        }
+
+        //function: para exibir os itens do pedido
+        function listarPedido() {
+          console.log("..... ..... ..... PEDIDO ATUAL ..... ..... .....");
+          for (item of pedido) {
+            console.log(item["produto"] + " R$ " + item["total"]);
+          }
+          console.log("..... ..... ..... .....    ..... ..... ..... .....");
+        }
+
+        //function: para calcular o valor total do pedido
+        function calculartotal() {
+          let total = 0;
+          for (item of pedido) {
+            total = total + item["total"];
+          }
+          return total;
+        }
+
+        do {
+          adicionarProdutoPedido(produtos);
+        } while (!verificarPedidoFinalizado()); //! (ie not) para interpretar a condição enquanto falsa
+
+        listarPedido();
+        console.log("O valor total a ser pago é de: R$" + calculartotal());
+      </code>
+    </pre>
+      <hr />
+    </main>
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>

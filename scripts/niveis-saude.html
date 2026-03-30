@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Níveis de saúde (colesterol e glicose)</h1>
+      <p>
+        Script que <strong>classifica</strong> o nível de colesterol a partir de
+        dados informados pelo usuário,
+        <strong>seguindo regras pré-definidas</strong>.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        //exercício: faça um programa que, ao informar o colesterol, exiba “Saúde Ok” se for menor que 180, ou “Vamos procurar uma ajuda médica?” caso contrário.
+        
+        //requerimento de inicialização de módulo
+        const prompt = require('prompt-sync')();
+        
+        //entrada de dados por parte do usuário
+        const nivelColesterol = parseFloat(prompt('Qual é o seu nível de colesterol atual? '));
+        
+        //lógica de operação do script
+        if (nivelColesterol < 180)
+          console.log('Saúde OK.');
+        else (nivelColesterol > 180)
+          console.log('Vamos procurar uma ajuda médica?');
+      </code>
+    </pre>
+      <br />
+      <pre>
+      <code>
+        //exercício: repita o exercício anterior, agora com glicose, e usando intervalo para classificar
+        
+        //requerimento de inicialização de módulo
+        const prompt = require('prompt-sync')();
+        
+        //entrada de dados por parte do usuário
+        const nivelGlicose = parseFloat(prompt("Qual é o seu nível de glicose atual? "));
+        
+        //lógica de operação do script
+        //fora do intervalo
+        if (nivelGlicose < 70 || nivelGlicose > 180){ 
+          console.log("Vamos procurar uma ajuda médica?");
+        //dentro do intervalo
+        } else if (nivelGlicose > 70 && nivelGlicose < 180){ 
+          console.log("Parabéns! Sua glicose está no intervalo ideal.");
+        }
+      </code>
+    </pre>
+      <hr />
+    </main>
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>

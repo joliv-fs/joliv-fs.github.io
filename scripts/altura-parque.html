@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Conferir altura</h1>
+      <p>
+        Script que <strong>confere se</strong> o visitante do parque de
+        diversões <strong>pode entrar </strong>, <strong>ou não</strong>, no
+        brinquedo.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        /*
+        exercício: Um parque solicitou um script que, ao informar a altura da criança, permita o acesso se for igual ou maior que 1,20 m; caso contrário, exiba “Acesso apenas para crianças com mais de um metro e vinte”.
+        */
+
+        //requires: inicialização de módulos
+        const prompt = require('prompt-sync')();
+
+        //vars: declarar variáveis necessárias
+        let alturaCriança = 1.20;
+
+        //user input: entrada de dados por parte do usuário
+        alturaCriança = parseFloat(prompt("Por motivos de segurança, informe a altura da criança: "));
+
+        //lógica de operação do script
+        let statusAcesso = (alturaCriança >= 1.20) ? "Acesso negado! O brinquedo é permitido somente para crianças com mais de um metro e vinte de altura." : "Acesso liberado!"; 
+        console.log(statusAcesso);
+      </code>
+    </pre>
+      <hr />
+    </main>
+
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>

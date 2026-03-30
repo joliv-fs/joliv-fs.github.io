@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Calculadora de comissão sobre vendas</h1>
+      <p>
+        Script que <strong>calcula</strong> a comissão dos vendedores
+        <strong>com base no valor total</strong> de vendas de um estabelecimento
+        comercial.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        //exercício: desenvolva um programa para calcular comissão com as seguintes condições: 4% se vendas mensais forem ≥ R$ 100.000,00; 2% se forem menores.
+
+        //requerimento de inicialização de módulo
+        const prompt = require("prompt-sync")();
+
+        //entrada de dados por parte do usuário
+        let comissao = 0;
+        const vendasMensal = parseFloat(prompt("Qual foi o total de vendas do mês? "));
+
+        //lógica de operação do script
+        if (vendasMensal >= 100000) {
+          console.log("Aplicar 4% de comissão");
+          comissao = vendasMensal * 0.04;
+          console.log("Sua comissão será de", comissao);
+        } else {
+          console.log("Aplicar 2% de comissão");
+          comissao = vendasMensal * 0.02;
+          console.log("Sua comissão será de", comissao);
+        }
+
+        //aqui poderia ser feito tratamento de erro, colocar 'loop'
+      </code>
+    </pre>
+      <hr />
+    </main>
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>

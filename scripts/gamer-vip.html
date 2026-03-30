@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Rank Gamer VIP</h1>
+      <p>
+        Script que <strong>confere o status</strong> de um jogador com base em
+        sua pontuação.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        /*
+        exercício: o usuário de uma página de games deve inserir sua pontuação: se for acima de 1.000, o programa exibirá “Usuário VIP”; caso contrário, mostrará “Aumente sua pontuação para se tornar um usuário VIP”.
+        */
+
+        //requires: inicialização de módulos
+        const prompt = require("prompt-sync")();
+
+        //vars: declarar variáveis necessárias
+        let pontuacaoUsuario = 1.0; //colocando assim ele identifica tanto 1.001 quanto 1001
+
+        //user input: entrada de dados por parte do usuário
+        pontuacaoUsuario = parseFloat(prompt("Qual foi a sua pontuação? "));
+
+        //lógica de operação do script
+        let statusUsuario =
+          pontuacaoUsuario >= 1.0
+            ? "Parabéns! Você é um Usuário VIP!"
+            : "Aumente sua pontuação para se tornar um usuário VIP.";
+        console.log(statusUsuario);
+      </code>
+    </pre>
+      <hr />
+    </main>
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>

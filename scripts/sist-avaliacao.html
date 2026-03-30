@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Sistema de avaliação</h1>
+      <p>
+        Script que <strong>afere o resultado final</strong> de um aluno
+        <strong>com base em notas e critérios</strong> de avaliação.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        /*exercício: desenvolva um programa onde o professor ao digitar a nota indique: “Nota Inválida” se for menor que 0 ou maior que 10; “Aluno reprovado” para notas entre 0 e 4; “Aluno em Recuperação” para notas entre 4 e 7; e “Aluno Aprovado” para notas entre 7 e 10.
+        Depois acrescente a seguinte melhoria: se o aluno estiver em recuperação, o programa deve pedir uma nova nota. Se essa for menor que 5, exibe “Reprovado na Recuperação”; caso contrário, “Aprovado na Recuperação”.
+        */
+        
+        //requires: inicialização de módulo; pode se alterar 'prompt' para outro termo
+        const prompt = require("prompt-sync")();
+        
+        //entrada de dados por parte do usuário; pode ser 'const' pois esse valor não será alterado
+        let notaEstudante = null;
+        let notaRecuperacao = null;
+
+        while (notaEstudante != "x") {
+          notaEstudante = prompt("Qual foi a nota do estudante? ");
+          switch (true) {
+            case parseFloat(notaEstudante) < 0 || parseFloat(notaEstudante) > 10:
+              console.log("Nota inválida. Digite novamente.");
+              break;
+            case parseFloat(notaEstudante) >= 7:
+              console.log("Aluno aprovado!");
+              break;
+            case parseFloat(notaEstudante) >= 4:
+              console.log("Aluno em recuperação.");
+              notaRecuperacao = prompt("Digite a nota de recuperação do estudante: ");
+              if (notaRecuperacao >= 5) {
+                console.log("Aluno aprovado em recuperação.");
+              }
+              if (notaRecuperacao <= 5) {
+                console.log("Aluno reprovado em recuperação.");
+              }
+              break;
+            case parseFloat(notaEstudante) < 4:
+              console.log("Aluno reprovado.");
+              break;
+            default:
+              console.log("Nota inválida. Tente novamente.");
+          }
+        }
+      </code>
+    </pre>
+      <hr />
+    </main>
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>

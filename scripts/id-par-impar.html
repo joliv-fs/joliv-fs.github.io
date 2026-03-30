@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Par ou Ímpar</h1>
+      <p>
+        Script que verifica se um número informado pelo usuário é
+        <strong>par</strong> ou <strong>ímpar</strong>.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        //exercício: faça uma aplicação que identifique se um dado numero é par ou impar
+        
+        //permitir o input/entrada de dados do usuário
+        const prompt = require('prompt-sync')();
+        const numero = parseFloat(prompt('Qual número você deseja saber se é Par ou Ímpar? '));
+        
+        //definir lógica das funções a serem executadas segundo input/entrada do usuário
+        function verificarParImpar(numero) {
+          if (typeof numero !== 'number') {
+            return "Por favor, insira um número válido.";
+          }
+          
+          if (numero % 2 === 0) {
+            return `${numero} é um número par.`;
+          } else {
+            return `${numero} é um número ímpar.`;
+          }
+        }
+        
+        console.log(verificarParImpar(numero));
+      </code>
+    </pre>
+      <hr />
+    </main>
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>

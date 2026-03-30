@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Calculadora (quase) científica</h1>
+      <p>
+        Script que realiza <strong>cálculos matemáticos básicos</strong>, além
+        de <strong>porcentagem</strong>, <strong>exponenciação</strong> e
+        <strong>módulo matemático</strong>.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        //exercício: crie uma calculadora com as operações de soma, subtração, multiplicação, divisão, exponenciação, porcentagem e módulo matemática usando funções
+
+        //require: requisição de módulos
+        const prompt = require("prompt-sync")();
+
+        //var: declaração de variáveis
+        let x = null;
+        let y = null;
+        let resultado = null;
+        let operacao = null;
+
+        x = prompt("Digite o primeiro valor da operação a ser realizada: ");
+        y = prompt("Digite o primeiro valor da operação a ser realizada: ");
+        operacao = prompt("Digite qual operação você deseja realizar: ");
+
+        //function: declaração função (nome, variáveis utilizadas, lógica a ser executada e resultado pretendido da função)
+        function soma(x, y) {
+          let total = parseFloat(x) + parseFloat(y);
+          return total;
+        }
+
+        function subtracao(x, y) {
+          let total = parseFloat(x) - parseFloat(y);
+          return total;
+        }
+
+        function multiplicacao(x, y) {
+          let total = parseFloat(x) * parseFloat(y);
+          return total;
+        }
+
+        function divisao(x, y) {
+          let total = parseFloat(x) / parseFloat(y);
+          return total;
+        }
+
+        function exponenciacao(x, y) {
+          let total = parseFloat(x) ** parseFloat(y);
+          return total;
+        }
+
+        //módulo computacional aka porcentagem
+        function moduloComp(x, y) {
+          let total = parseFloat(x) % parseFloat(y);
+          return total;
+        }
+
+        //módulo matemático que é diferente de módulo computacional
+        function moduloMat(x) {
+          let total = x < 0 ? x * -1 : x;
+          return total;
+        }
+
+        console.log(resultado);
+
+      </code>
+    </pre>
+      <hr />
+    </main>
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>

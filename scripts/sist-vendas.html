@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Calculadora de preços à vista e a prazo</h1>
+      <p>
+        Script que <strong>calcula o valor final</strong> de um produto
+        considerando pagamento <strong>à vista</strong> ou
+        <strong>parcelado</strong> para o lojista.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        /*
+        exercício: crie um programa onde o vendedor digitará o valor de um produto;
+        dê a opção do vendedor visualizar o valor parcelado (+5% sob o valor inicial) e o valor à vista (-10% sob o valor inicial).
+        */
+        
+        //fazer requerimento de inicialização do módulo 'prompt-sync'
+        const prompt = require('prompt-sync')(); 
+        
+        //estabelecer valor padrão a variável
+        let valor = 0; 
+        //entrada usuário valor inicial do item + conv. de 'string' para 'number'
+        const valorItem = parseFloat(prompt('Qual é o valor do item que você deseja adicionar ao sistema de vendas? ')); 
+        //estabelecer valor parcelado do item (acréscimo de 5% em juros sob o valor inicial)
+        const valorParcelado = valorItem + (valorItem * 0.05); 
+        //estabelecer valor à vista do item (desconto de 10% sob valor inicial)
+        const valorPix = valorItem - (valorItem * 0.10); 
+        
+        //comando para executar a lógica/operação/script
+        console.log(`O valor do item parcelado será de: R$ ${valorParcelado}. Já o valor do item com desconto à vista será de: R$ ${valorPix}`);
+      </code>
+    </pre>
+      <hr />
+    </main>
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>

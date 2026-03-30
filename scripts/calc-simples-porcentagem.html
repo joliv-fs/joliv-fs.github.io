@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Calculadora simples &#43; porcentagem</h1>
+      <p>
+        Script que <strong>executa operações matemáticas básicas</strong> e
+        <strong>calcula porcentagens</strong> a partir de valores informados
+        pelo usuário.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        //exercício: faça uma aplicação que execute as quatro operações básicas e o módulo matemático (porcentagem)
+        
+        const prompt = require('prompt-sync')();
+        
+        //acrescentar opção para selecionar operação
+        let operação = prompt('Qual operação deseja realizar (+) (-) (*) (/) (%)? ');
+        const Valor1 = parseFloat(prompt('Qual é o primeiro valor dessa operação? '));
+        const Valor2 = parseFloat(prompt('Qual é o segundo valor dessa operação? '));
+        let total = 0; 
+        
+        /*
+        definir função a ser executada segundo input/entrada do usuário
+        lógica desta função: se 'operação a' ... prosseguir com; se não prosseguir com 'operação b' ... do contrário 'mensagem de erro'
+        */
+        function execOperação(operação, Valor1, Valor2) {
+            if (operação == "+") {
+                return Valor1 + Valor2;
+            } else if
+                (operação == "-") {
+                return Valor1 - Valor2;
+            } else if
+                (operação == "*") {
+                return Valor1 * Valor2;
+            } else if
+                (operação == "/") {
+                return Valor1 / Valor2;
+            } else if
+                (operação == "%") {
+                return Valor1 / Valor2;
+            }   else {
+                throw new Error('Operação inválida');
+            }
+          }
+          
+          console.log('O resultado é', execOperação(operação, Valor1, Valor2)) 
+      </code>
+    </pre>
+      <hr />
+    </main>
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Tabuada</h1>
+      <p>
+        Script que <strong>gera a tabuada</strong> de um número informado pelo
+        usuário.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        //exercício: apresente a tabuada de um dado numero x, até um multiplicador y (por exemplo, x =5 e y = 7 então deve apresentar resultdos de 5*1 até 5*7)
+
+        //while de cara e for pedindo dado user
+
+        //requires: inicialização de módulo
+        const prompt = require("prompt-sync")();
+
+        //var: declaração de variáveis ; nome descritivo para você se lembrar ao que ela se refere
+        let numeroMultiplicando = null; 
+        let numeroMultiplicador = null;
+
+        //input: entrada do usuário, coleta de dados
+        numeroMultiplicando = parseInt(prompt("Informe o número que você deseja multiplicar: ")); 
+        numeroMultiplicador = parseInt(prompt("Informe até que número você deseja multiplicar: ")); 
+        /*aqui pode ser parseInt porque consideramos que o usuário vai entrar números inteiros
+        no caso de numerais com dois digitos, o parseInt dá erro porque ele interpreta como dois numerais
+        */
+
+        //lógica de operação do script: 
+        for (let i = 1; i <= numeroMultiplicador; i++) {
+          console.log( numeroMultiplicando * i);
+          }
+      </code>
+    </pre>
+      <hr />
+    </main>
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>

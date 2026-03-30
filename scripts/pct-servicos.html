@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meu-portfolio &vert; scripts</title>
+  </head>
+  <body>
+    <main>
+      <!-- conferir se está correto assim -->
+      <p>
+        <a href="./../index.html">&larr; Voltar ao portfólio</a>
+      </p>
+      <h1>Recomendação de pacote de serviços</h1>
+      <p>
+        Script que <strong>sugere</strong> um pacote de serviços em um banco
+        <strong>com base em critérios</strong> de renda do cliente.
+      </p>
+      <hr />
+      <h2>Código</h2>
+      <pre>
+      <code>
+        /*
+        exercício: crie uma página para empresa onde, ao digitar o salário do cliente, o programa indica “Oferecer Plano Alfa” se for acima de R$ 3.000,00, ou “Oferecer Plano Beta” se for menor.
+        */
+
+        //requires: inicialização de módulo; pode se alterar 'prompt' para outro termo
+        const prompt = require("prompt-sync")();
+
+        //entrada de dados por parte do usuário; pode ser 'const' pois esse valor não será alterado
+        const salarioCliente = parseFloat(prompt("Qual é o salário do cliente? "));
+
+        //lógica de operação do script: avaliar valor, se maior que então ... se não então
+        if (salarioCliente >= 3000) {
+          //maior ou igual a
+          console.log("Ofereça ao cliente o Plano Alfa.");
+        } else if (salarioCliente < 3000 && salarioCliente > 0) {
+          //aqui é uma maneira de blindar possíveis erros por parte do usuário
+          console.log("Ofereça ao cliente o Plano Beta.");
+        } else {
+          console.log(
+            "Valor inválido. Por favor, confira o valor e digite o salário novamente.",
+          );
+        }
+      </code>
+    </pre>
+      <hr />
+    </main>
+    <footer>
+      <p>Feito em <strong>HTML</strong> por Jandira Oliveira &copy;2026</p>
+    </footer>
+  </body>
+</html>
